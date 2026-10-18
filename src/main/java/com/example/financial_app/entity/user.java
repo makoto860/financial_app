@@ -12,8 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
-
-public class user {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +33,7 @@ public class user {
     @PrePersist
     public void prePersist() {
         if (createdAt == null) {
-            createdAt = LocalDateTime.now();
+        	createdAt = LocalDateTime.now();
         }
     }
     

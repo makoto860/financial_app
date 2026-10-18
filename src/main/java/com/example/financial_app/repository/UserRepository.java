@@ -2,8 +2,8 @@ package com.example.financial_app.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.financial_app.entity.user;
+import com.example.financial_app.entity.User;
 
-public interface user_repository extends JpaRepository<user, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 	boolean existsByEmail(String email);
 }
