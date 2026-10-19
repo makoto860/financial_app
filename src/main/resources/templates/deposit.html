@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>入金</title>
+</head>
+<body>
+	<h1>入金</h1>
+	<p>入金する金額を入力してください。</p>
+	<p th:if="${message != null}"
+	    th:text="${message}"
+	    style="color: red;">
+	</p>
+
+	<form th:action="@{/deposit}" method="post">
+	    <label for="amount">入金額（円）</label>
+	    <input type="number" id="amount" name="amount" min="1" step="1" required>
+	    <button type="submit">入金する</button>
+	</form>
+
+	<p><a th:href="@{/account}">マイ口座へ戻る</a></p>
+	<p><a th:href="@{/home}">ホームへ戻る</a></p>
+</body>
+</html>
