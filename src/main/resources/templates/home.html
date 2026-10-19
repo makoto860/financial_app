@@ -11,11 +11,9 @@
 	    <ul>
 	        <li><a th:href="@{/account}">マイ口座・残高確認</a></li>
 	        <li><a th:href="@{/withdrawal}">出金</a></li>
-	        <li>お金を引き出す</li>
-	        <li>出金（これから実装）</li>
+			<li><a th:href="@{/deposit}">入金</a></li>
 	    </ul>
 	</nav>
-
 	<form th:action="@{/logout}" method="post">
 	    <button type="submit">ログアウト</button>
 	</form>
