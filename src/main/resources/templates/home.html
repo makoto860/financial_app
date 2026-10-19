@@ -7,12 +7,14 @@
 <body>
 	<h1>ホーム画面</h1>
 	<p>ログインしました。</p>
-	<h2>メニュー</h2>
-	<ul>
-	    <li>残高確認（これから実装）</li>
-	    <li>お金を引き出す</li>
-	    <li>出金（これから実装）</li>
-	</ul>
+	<nav>
+	    <ul>
+	        <li><a th:href="@{/account}">マイ口座・残高確認</a></li>
+	        <li><a th:href="@{/withdrawal}">出金</a></li>
+	        <li>お金を引き出す</li>
+	        <li>出金（これから実装）</li>
+	    </ul>
+	</nav>
 
 	<form th:action="@{/logout}" method="post">
 	    <button type="submit">ログアウト</button>

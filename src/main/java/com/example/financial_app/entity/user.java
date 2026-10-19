@@ -1,5 +1,6 @@
 package com.example.financial_app.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -29,6 +30,9 @@ public class User {
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
+    
+    @Column(nullable = false, precision = 19, scale = 2)
+    private BigDecimal balance = BigDecimal.ZERO;
 
     @PrePersist
     public void prePersist() {
@@ -67,5 +71,13 @@ public class User {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+    
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html  lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>マイ口座</title>
+</head>
+<body>
+	<h1>マイ口座</h1>
+	<p>
+		口座名義：<span th:text="${username}">ユーザー名</span>
+	</p>
+    <h2>現在の口座残高</h2>
+    <p>
+	     ¥<span th:text="${#numbers.formatDecimal(balance, 1, 'COMMA', 2, 'POINT')}">0.00</span>
+	</p>
+	<p><a th:href="@{/withdrawal}">出金画面へ</a></p>
+	<p><a th:href="@{/home}">ホームへ戻る</a></p>
+</body>
+</html>
