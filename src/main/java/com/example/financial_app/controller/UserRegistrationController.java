@@ -56,6 +56,6 @@ public class UserRegistrationController {
 
     @GetMapping("/register/complete")
     public String showCompletePage() {
-        return "register-complete";
+        return "register_complete";
     }
 }

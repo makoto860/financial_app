@@ -23,7 +23,6 @@ public class UserRegistrationService {
     
     @Transactional
     public boolean register(UserRegistrationForm form) {
-
         if (UserRepository.existsByEmail(form.getEmail())) {
             return false;
         }
@@ -38,7 +37,6 @@ public class UserRegistrationService {
         );
 
         UserRepository.save(user);
-
         return true;
     }
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html  lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ホーム画面</title>
+</head>
+<body>
+	<h1>金融アプリ ホーム画面</h1>
+	<p>ログインしました。</p>
+	<h2>メニュー</h2>
+	<ul>
+	    <li>残高確認（これから実装）</li>
+	    <li>入金（これから実装）</li>
+	    <li>出金（これから実装）</li>
+	</ul>
+
+	<form th:action="@{/logout}" method="post">
+	    <button type="submit">ログアウト</button>
+	</form>
+</body>
+</html>

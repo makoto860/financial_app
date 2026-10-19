@@ -9,7 +9,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -19,13 +18,22 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http) throws Exception {
 
-        http.authorizeHttpRequests(auth -> auth
-            .requestMatchers("/register", "/register/complete")
-            .permitAll()
-            .anyRequest().authenticated()
-        );
-
-        http.formLogin(form -> form.permitAll());
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/register",
+                    "/register/complete",
+                    "/register_complete"
+                ).permitAll()
+                .anyRequest().authenticated()
+            )
+            .formLogin(form -> form
+            	.loginPage("/login")
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/home", true)
+                .permitAll()
+            );
 
         return http.build();
     }
