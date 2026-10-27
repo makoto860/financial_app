@@ -1,3 +1,4 @@
+
 package com.example.financial_app.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,7 @@ import com.example.financial_app.repository.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
+
     private final UserRepository userRepository;
 
     public CustomUserDetailsService(UserRepository userRepository) {
