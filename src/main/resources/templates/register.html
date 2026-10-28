@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新規登録 | Financial App</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 40px 16px;
+        }
+
+        .container {
+            max-width: 420px;
+            margin: auto;
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px #00000010;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 28px;
+            padding: 13px;
+            background: #176b55;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: #c62828;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>新規登録</h1>
+
+    <form th:action="@{/register}"
+          th:object="${userRegistrationForm}"
+          method="post">
+
+        <label for="username">ユーザー名</label>
+        <input id="username" type="text"
+               th:field="*{username}" autocomplete="username">
+        <p class="error"
+           th:if="${#fields.hasErrors('username')}"
+           th:errors="*{username}"></p>
+
+        <label for="email">メールアドレス</label>
+        <input id="email" type="email"
+               th:field="*{email}" autocomplete="email">
+        <p class="error"
+           th:if="${#fields.hasErrors('email')}"
+           th:errors="*{email}"></p>
+        <p class="error" th:if="${emailError}"
+           th:text="${emailError}"></p>
+
+        <label for="password">パスワード</label>
+        <input id="password" type="password"
+               th:field="*{password}"
+               autocomplete="new-password">
+        <p class="error"
+           th:if="${#fields.hasErrors('password')}"
+           th:errors="*{password}"></p>
+
+        <button type="submit">アカウントを作成</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html  lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ホーム画面</title>
+</head>
+<body>
+	<h1>ホーム画面</h1>
+	<p>ログインしました。</p>
+	<nav>
+	    <ul>
+	        <li><a th:href="@{/account}">マイ口座・残高確認</a></li>
+	        <li><a th:href="@{/withdrawal}">出金</a></li>
+			<li><a th:href="@{/deposit}">入金</a></li>
+	    </ul>
+	</nav>
+	<form th:action="@{/logout}" method="post">
+	    <button type="submit">ログアウト</button>
+	</form>
+</body>
+</html>
