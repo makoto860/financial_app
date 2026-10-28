@@ -1,10 +1,10 @@
 //認証サービス
 package com.example.financial_app.service;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.nio.charset.StandardCharsets;
 import java.util.HexFormat;
 import java.util.Locale;
 
@@ -61,6 +61,23 @@ public class EmailVerificationService {
                 "ログイン認証番号は " + code + " です。\n"
                 + "この番号の有効期限は5分です。\n"
                 + "心当たりがない場合は、このメールを無視してください。");
+
+        mailSender.send(message);
+    }
+    
+    //ユーザー毎にメールに暗証番号を届くようにする
+    public void sendVerificationCode(
+            String email, String code) {
+
+        SimpleMailMessage message =
+                new SimpleMailMessage();
+
+        // 利用者ごとの送信先
+        message.setTo(email);
+
+        message.setSubject("ログイン認証コード");
+        message.setText(
+                "あなたの認証コードは " + code + " です。");
 
         mailSender.send(message);
     }
